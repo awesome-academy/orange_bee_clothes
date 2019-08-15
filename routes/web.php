@@ -47,6 +47,14 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::delete('/products/{product}', 'ProductController@destroy')->name('product.destroy');
     Route::get('/products/{product}/edit', 'ProductController@edit')->name('product.edit');
     Route::post('/products/{product}', 'ProductController@update')->name('product.update');
+    Route::get('/products/{product}/edit', 'ProductsController@edit')->name('product.edit');
+    // Route::post('/products/{product}', 'ProductsController@update')->name('products.update');
+
+    Route::get('/orders', 'OrdersController@index')->name('orders.index');
+    Route::get('/orders/{order}/edit', 'OrdersController@edit')->name('orders.edit');
+    Route::post('/orders/{order}', 'OrdersController@update')->name('orders.update');
+    Route::get('/orders/{order}', 'OrdersController@show')->name('orders.show');
+    Route::delete('/orders/{product}', 'OrdersController@destroy')->name('orders.destroy');
 });
 
 Route::get('/posts', 'Customer\PostController@index')->name('customer.post.index');
@@ -60,4 +68,6 @@ Route::namespace('Frontend')->group(function() {
     Route::post('/up-cart-quantity/{id}', 'CartController@upCartQuantity')->name('cart.upCartQuantity');
     Route::get('/down-cart-quantity/{id}', 'CartController@downCartQuantity')->name('cart.downCartQuantity');
     Route::get('/product/{product}', 'ProductController@show')->name('product.show');
+    Route::get('/checkout', 'CheckoutController@index')->name('checkout.index')->middleware('auth');;
+    Route::post('/checkout', 'CheckoutController@store')->name('checkout.store');
 });

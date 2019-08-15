@@ -67,7 +67,7 @@
                                         <th><p class="cart_sum_total_price" data-product-id="{{ $product['item']->id }}">{{ number_format($totalPrice) }}</p></th>
                                     </tr>
                                 </table>
-                                <a href="#" class="check_out">{{ __('cart.proceed_checkout') }}</a>
+                                <a href="{{ route('checkout.index')}}" class="check_out">{{ __('cart.proceed_checkout') }}</a>
                             </div>
                         </div>
                     </div>
@@ -77,6 +77,9 @@
             <div class="row">
                 <div class="col-sm-6 col-md-6 col-sm-offset-3 col-md-offset-3">
                     <h2>{{ __('cart.no_item') }}</h2>
+                    <div class="right_shopping">
+                        <a href="{{ url('/home')}}"><p>{{ __('cart.continue') }}</p></a>
+                    </div>
                 </div>
             </div>
     </section>
