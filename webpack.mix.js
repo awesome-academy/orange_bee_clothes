@@ -46,7 +46,7 @@ mix.js('resources/js/app.js', 'public/js')
 
    .js('resources/js/cart.js', 'public/js')
    .js('resources/js/add_to_cart.js', 'public/js')
-
+    .js('resources/js/admin_custom.js', 'public/js')
    .js('resources/js/admin_product.js', 'public/js/admin_product.js')
    .js('resources/js/product.js', 'public/js/product.js')
 
