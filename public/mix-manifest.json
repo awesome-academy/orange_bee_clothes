@@ -1,11 +1,15 @@
 {
     "/js/add_to_cart.js": "/js/add_to_cart.js",
+    "/js/admin_attribute.js": "/js/admin_attribute.js",
+    "/js/admin_custom.js": "/js/admin_custom.js",
+    "/js/admin_product.js": "/js/admin_product.js",
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/js/cart.js": "/js/cart.js",
     "/js/delete_brand.js": "/js/delete_brand.js",
     "/js/delete_category.js": "/js/delete_category.js",
     "/js/delete_post.js": "/js/delete_post.js",
+    "/js/product.js": "/js/product.js",
     "/js/jquery.js": "/js/jquery.js",
     "/js/jquery-1.11.3.min.js": "/js/jquery-1.11.3.min.js",
     "/js/price-slider.js": "/js/price-slider.js",
@@ -25,5 +29,6 @@
     "/css/clean-blog.min.css": "/css/clean-blog.min.css",
     "/rs-plugin/js/jquery.themepunch.revolution.min.js": "/rs-plugin/js/jquery.themepunch.revolution.min.js",
     "/rs-plugin/js/jquery.themepunch.tools.min.js": "/rs-plugin/js/jquery.themepunch.tools.min.js",
-    "/rs-plugin/js/rs.home.js": "/rs-plugin/js/rs.home.js"
+    "/rs-plugin/js/rs.home.js": "/rs-plugin/js/rs.home.js",
+    "/css/orange_style.css": "/css/orange_style.css"
 }

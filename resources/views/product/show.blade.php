@@ -16,9 +16,11 @@
                    </div>
                    <div class="product_img_list">
                        <ul role="tablist">
-                            @foreach( $imageLists as $image)
-                               <li role="presentation" class="active"><a href="#one" aria-controls="one" role="tab" data-toggle="tab"><img src="{{ asset(config('product.image_path') . $image) }}" alt=""></a></li>
-                            @endforeach
+                           @if (is_array($imageLists) || is_object($imageLists))
+                               @foreach( $imageLists as $image)
+                                   <li role="presentation" class="active"><a href="#one" aria-controls="one" role="tab" data-toggle="tab"><img src="{{ asset(config('product.image_path') . $image) }}" alt=""></a></li>
+                               @endforeach
+                           @endif
                        </ul>
                    </div>
                 </div>
@@ -43,9 +45,11 @@
                             <div class="size">
                                 <h2>Size</h2>
                                 <div class="size_form">
-                                    @foreach ($sizes as $size)
-                                    <a href="#">{{ $size->name }}</a>
-                                    @endforeach
+                                    @if (is_array($sizes) || is_object($sizes))
+                                        @foreach ($sizes as $size)
+                                            <a href="#">{{ $size->name }}</a>
+                                        @endforeach
+                                    @endif
                                 </div>
                             </div>
                             <div class="quantity">
@@ -56,14 +60,16 @@
                         <div class="product_details_color">
                             <h2>color</h2>
                             <div class="color_spans">
-                                @foreach ($colors as $color)
-                                <a href="#" alter="{{ $color->name }}"><span class="white" style="background-color: {{ $color->value }}""></span></a>
-                                @endforeach
+                                @if (is_array($colors) || is_object($colors))
+                                    @foreach ($colors as $color)
+                                        <a href="#" alter="{{ $color->name }}"><span class="white" style="background-color: {{ $color->value }}""></span></a>
+                                    @endforeach
+                                @endif
                             </div>
                             <div class="favorite_icons">
                                 <a href="#"><i class="fa fa-heart"></i></a>
                                 <a href="#"><i class="fa fa-exchange"></i></a>
-                                <a href="#" class="add_to_cart">Add to cart</a>
+                                <a href="#" class="add_to_cart" class="add_to_cart btn btn-danger my-cart-btn" data-product-id="{{ $product->id }}" role="button">Add to cart</a>
                             </div>
                         </div>
                     </div>
@@ -80,33 +86,35 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="owl_sale_wrapper">
-                    @foreach ($recommendPros as $key => $product)
-                        <div class="single_featured">
-                            <div class="single_featured_img">
-                                <a href="shop.html">
-                                <img class="primary_image" src="{{ asset(config('products.image_path') . $product->image) }}" alt="sale">
-                            </div>
-                            <div class="actions">
-                                <div class="action_button">
-                                    <ul>
-                                        <li><a href="#" data-toggle="tooltip" title="Add to cart"><i class="fa fa-shopping-cart"></i></a></li>
-                                        <li><a href="#" data-toggle="tooltip" title="View"><i class="fa fa-eye"></i></a></li>
-                                        <li><a href="#" data-toggle="tooltip" title="Favorite"><i class="fa fa-heart"></i></a></li>
-                                        <li><a href="#" data-toggle="tooltip" title="Compair"><i class="fa fa-refresh"></i></a></li>
-                                    </ul>
+                    @if (is_array($recommendPros) || is_object($recommendPros))
+                        @foreach ($recommendPros as $key => $product)
+                            <div class="single_featured">
+                                <div class="single_featured_img">
+                                    <a href="shop.html">
+                                    <img style="height: 350px; width: 300px;" class="primary_image" src="{{ asset(config('product.image_path') . $product->image) }}" alt="sale">
+                                </div>
+                                <div class="actions">
+                                    <div class="action_button">
+                                        <ul>
+                                            <li><a href="#" data-toggle="tooltip" title="Add to cart"><i class="fa fa-shopping-cart"></i></a></li>
+                                            <li><a href="#" data-toggle="tooltip" title="View"><i class="fa fa-eye"></i></a></li>
+                                            <li><a href="#" data-toggle="tooltip" title="Favorite"><i class="fa fa-heart"></i></a></li>
+                                            <li><a href="#" data-toggle="tooltip" title="Compair"><i class="fa fa-refresh"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="single_featured_label">
+                                    <a href="{{ route('product.show', $product->id)}}"><h2>{{ $product->name }}</h2></a>
+                                    <a href="#"><i class="fa fa-star"></i></a>
+                                    <a href="#"><i class="fa fa-star"></i></a>
+                                    <a href="#"><i class="fa fa-star-o"></i></a>
+                                    <a href="#"><i class="fa fa-star-o"></i></a>
+                                    <a href="#"><i class="fa fa-star-o"></i></a>
+                                    <h3>{{ __('products.pro_currency') }}{{ $product->price }}</h3>
                                 </div>
                             </div>
-                            <div class="single_featured_label">
-                                <a href="{{ route('product.show', $product->id)}}"><h2>{{ $product->name }}</h2></a>
-                                <a href="#"><i class="fa fa-star"></i></a>
-                                <a href="#"><i class="fa fa-star"></i></a>
-                                <a href="#"><i class="fa fa-star-o"></i></a>
-                                <a href="#"><i class="fa fa-star-o"></i></a>
-                                <a href="#"><i class="fa fa-star-o"></i></a>
-                                <h3>{{ __('products.pro_currency') }}{{ $product->price }}</h3>
-                            </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    @endif
                 </div>
             </div>
         </div>
