@@ -16,6 +16,9 @@
 
                     You are logged in!
                 </div>
+                <p>My name: {{ auth()->user()->name }}</p>
+                <p>My Email: {{ auth()->user()->email }}</p>
+                <img alt="{{auth()->user()->name}}" src="{{auth()->user()->image}}"/>
             </div>
         </div>
     </div>

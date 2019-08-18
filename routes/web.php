@@ -18,6 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('login/{provider}', 'SocialController@redirect');
+Route::get('login/{provider}/callback','SocialController@Callback');
 
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
@@ -61,3 +63,7 @@ Route::namespace('Frontend')->group(function() {
     Route::get('/down-cart-quantity/{id}', 'CartController@downCartQuantity')->name('cart.downCartQuantity');
     Route::get('/product/{product}', 'ProductController@show')->name('product.show');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
